@@ -1,0 +1,558 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="qrichtext" content="1" /><style type="text/css">
+p, li { white-space: pre-wrap; }
+</style></head><body style=" font-family:'Consolas'; font-size:10pt; font-weight:400; font-style:normal;">
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">4</span><span style=" color:#00ff00;">]:</span> import pandas as pd </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">   ...:</span> import matplotlib.pyplot as plt </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">   ...:</span> dataset1=pd.read_excel('general_data.xlsx', sheet_name=0)</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">5</span><span style=" color:#00ff00;">]:</span> dataset1.head()</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">5</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">   Age Attrition  ... YearsSinceLastPromotion YearsWithCurrManager</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">0   51        No  ...                       0                    0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">1   31       Yes  ...                       1                    4</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2   32        No  ...                       0                    3</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">3   38        No  ...                       7                    5</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4   32        No  ...                       0                    4</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">[5 rows x 24 columns]</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">6</span><span style=" color:#00ff00;">]:</span> dataset1.columns</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">6</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Index(['Age', 'Attrition', 'BusinessTravel', 'Department', 'DistanceFromHome',</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">       'Education', 'EducationField', 'EmployeeCount', 'EmployeeID', 'Gender',</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">       'JobLevel', 'JobRole', 'MaritalStatus', 'MonthlyIncome',</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">       'NumCompaniesWorked', 'Over18', 'PercentSalaryHike', 'StandardHours',</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">       'StockOptionLevel', 'TotalWorkingYears', 'TrainingTimesLastYear',</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">       'YearsAtCompany', 'YearsSinceLastPromotion', 'YearsWithCurrManager'],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">      dtype='object')</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">7</span><span style=" color:#00ff00;">]:</span> dataset1.isnull()</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">7</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">        Age  Attrition  ...  YearsSinceLastPromotion  YearsWithCurrManager</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">0     False      False  ...                    False                 False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">1     False      False  ...                    False                 False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2     False      False  ...                    False                 False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">3     False      False  ...                    False                 False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4     False      False  ...                    False                 False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">...     ...        ...  ...                      ...                   ...</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4405  False      False  ...                    False                 False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4406  False      False  ...                    False                 False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4407  False      False  ...                    False                 False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4408  False      False  ...                    False                 False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4409  False      False  ...                    False                 False</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">[4410 rows x 24 columns]</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">8</span><span style=" color:#00ff00;">]:</span> dataset1.duplicated()</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">8</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">0       False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">1       False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2       False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">3       False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4       False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">        ...  </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4405    False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4406    False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4407    False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4408    False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4409    False</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Length: 4410, dtype: bool</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">9</span><span style=" color:#00ff00;">]:</span> dataset1.drop_duplicates()</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">9</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">      Age Attrition  ... YearsSinceLastPromotion YearsWithCurrManager</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">0      51        No  ...                       0                    0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">1      31       Yes  ...                       1                    4</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">2      32        No  ...                       0                    3</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">3      38        No  ...                       7                    5</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4      32        No  ...                       0                    4</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">...   ...       ...  ...                     ...                  ...</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4405   42        No  ...                       0                    2</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4406   29        No  ...                       0                    2</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4407   25        No  ...                       1                    2</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4408   42        No  ...                       7                    8</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">4409   40        No  ...                       3                    9</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">[4410 rows x 24 columns]</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">10</span><span style=" color:#00ff00;">]:</span> dataset3=dataset1[['Age','DistanceFromHome','Education','MonthlyIncome', 'NumCompaniesWorked', 'PercentSalaryHike','TotalWorkingYears', 'TrainingTimesLastYear', 'YearsAtCompany','YearsSinceLastPromotion', 'YearsWithCurrManager']].median()</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">    ...:</span> dataset3</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">10</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Age                           36.0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DistanceFromHome               7.0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Education                      3.0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">MonthlyIncome              49190.0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">NumCompaniesWorked             2.0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">PercentSalaryHike             14.0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TotalWorkingYears             10.0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TrainingTimesLastYear          3.0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsAtCompany                 5.0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsSinceLastPromotion        1.0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsWithCurrManager           3.0</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">dtype: float64</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">10</span><span style=" color:#00ff00;">]:</span> dataset1[['Age','DistanceFromHome','Education','MonthlyIncome', 'NumCompaniesWorked', 'PercentSalaryHike','TotalWorkingYears', 'TrainingTimesLastYear', 'YearsAtCompany','YearsSinceLastPromotion', 'YearsWithCurrManager']].mode() </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">    ...:</span> dataset3</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">11</span><span style=" color:#00ff00;">]:</span> dataset3=dataset1[['Age','DistanceFromHome','Education','MonthlyIncome', 'NumCompaniesWorked', 'PercentSalaryHike','TotalWorkingYears', 'TrainingTimesLastYear', 'YearsAtCompany','YearsSinceLastPromotion', 'YearsWithCurrManager']].var() </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">    ...:</span> dataset3</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">11</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Age                        8.341719e+01</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DistanceFromHome           6.569144e+01</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Education                  1.048438e+00</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">MonthlyIncome              2.215480e+09</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">NumCompaniesWorked         6.244436e+00</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">PercentSalaryHike          1.338907e+01</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TotalWorkingYears          6.056298e+01</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TrainingTimesLastYear      1.661465e+00</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsAtCompany             3.751728e+01</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsSinceLastPromotion    1.037935e+01</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsWithCurrManager       1.272582e+01</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">dtype: float64</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">12</span><span style=" color:#00ff00;">]:</span> dataset3=dataset1[['Age','DistanceFromHome','Education','MonthlyIncome', 'NumCompaniesWorked', 'PercentSalaryHike','TotalWorkingYears', 'TrainingTimesLastYear', 'YearsAtCompany','YearsSinceLastPromotion', 'YearsWithCurrManager']].skew() </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">    ...:</span> dataset3</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">12</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Age                        0.413005</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DistanceFromHome           0.957466</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Education                 -0.289484</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">MonthlyIncome              1.368884</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">NumCompaniesWorked         1.026767</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">PercentSalaryHike          0.820569</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TotalWorkingYears          1.116832</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TrainingTimesLastYear      0.552748</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsAtCompany             1.763328</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsSinceLastPromotion    1.982939</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsWithCurrManager       0.832884</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">dtype: float64</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">13</span><span style=" color:#00ff00;">]:</span> dataset3=dataset1[['Age','DistanceFromHome','Education','MonthlyIncome', 'NumCompaniesWorked', 'PercentSalaryHike','TotalWorkingYears', 'TrainingTimesLastYear', 'YearsAtCompany','YearsSinceLastPromotion', 'YearsWithCurrManager']].skew() </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">    ...:</span> dataset3</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">13</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Age                        0.413005</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DistanceFromHome           0.957466</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Education                 -0.289484</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">MonthlyIncome              1.368884</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">NumCompaniesWorked         1.026767</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">PercentSalaryHike          0.820569</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TotalWorkingYears          1.116832</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TrainingTimesLastYear      0.552748</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsAtCompany             1.763328</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsSinceLastPromotion    1.982939</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsWithCurrManager       0.832884</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">dtype: float64</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">14</span><span style=" color:#00ff00;">]:</span> dataset3=dataset1[['Age','DistanceFromHome','Education','MonthlyIncome', 'NumCompaniesWorked', 'PercentSalaryHike','TotalWorkingYears', 'TrainingTimesLastYear', 'YearsAtCompany','YearsSinceLastPromotion', 'YearsWithCurrManager']].kurt() </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">    ...:</span> dataset3</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">14</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Age                       -0.405951</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DistanceFromHome          -0.227045</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Education                 -0.560569</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">MonthlyIncome              1.000232</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">NumCompaniesWorked         0.007287</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">PercentSalaryHike         -0.302638</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TotalWorkingYears          0.912936</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">TrainingTimesLastYear      0.491149</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsAtCompany             3.923864</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsSinceLastPromotion    3.601761</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">YearsWithCurrManager       0.167949</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">dtype: float64</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">15</span><span style=" color:#00ff00;">]:</span> box_plot=dataset1.Age</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">16</span><span style=" color:#00ff00;">]:</span> plt.boxplot(box_plot)</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">16</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">{'whiskers': [&lt;matplotlib.lines.Line2D at 0x2477202ae88&gt;,</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;matplotlib.lines.Line2D at 0x24771e53f88&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'caps': [&lt;matplotlib.lines.Line2D at 0x24771e6da48&gt;,</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;matplotlib.lines.Line2D at 0x24771e821c8&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'boxes': [&lt;matplotlib.lines.Line2D at 0x24771ffeec8&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'medians': [&lt;matplotlib.lines.Line2D at 0x24771e9e4c8&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'fliers': [&lt;matplotlib.lines.Line2D at 0x24771edc7c8&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'means': []}</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><img src="data:image/png;base64,
+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
+QmCC
+" /></p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">17</span><span style=" color:#00ff00;">]:</span> box_plot=dataset1.MonthlyIncome </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">    ...:</span> plt.boxplot(box_plot)</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">17</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">{'whiskers': [&lt;matplotlib.lines.Line2D at 0x24771be7d48&gt;,</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;matplotlib.lines.Line2D at 0x24771be7708&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'caps': [&lt;matplotlib.lines.Line2D at 0x24771bf4848&gt;,</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;matplotlib.lines.Line2D at 0x24771bf4548&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'boxes': [&lt;matplotlib.lines.Line2D at 0x24773ac8a48&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'medians': [&lt;matplotlib.lines.Line2D at 0x24771dacc88&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'fliers': [&lt;matplotlib.lines.Line2D at 0x2477232ea88&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'means': []}</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><img src="data:image/png;base64,
+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
+3kL4a6+9xtatW/n6669Zt26dt67xzDPPsGnTJvbs2cOtt97KW2+9BcD69evZ
+v38/ruty44038uabb16pvwMREbFwzHCLAVexUChELBab7m6IXMJxnGHX3kR+
+CGzXTj2ZLSIiVgoKERGxUlCIiIiVgkJERKwUFCIiYqWgEBERKwWFiIhYKShE
+RMRKQSEiIlYKChERsVJQiIiIlYJCRESsFBQiImKloBARESsFhYiIWCkoRETE
+SkEhIiJWlxUUFRUVpKamkpub69X6+voIh8MEg0HC4TD9/f0AGGOorq7GdV3y
+8/M5evSo1yYajRIMBgkGg957sgFaW1vJy8vDdV2qq6u9t4CNdA4REZk6lxUU
+W7dupbGxcUitpqaGwsJC4vE4hYWF1NTUAHDgwAHi8TjxeJxIJEJVVRVw8aK/
+Y8cOPv74Y1paWtixY4d34a+qqiISiXjtvj3XSOcQEZGpc1lBsWrVKlJSUobU
+GhoaKC8vB6C8vJz6+nqvXlZWhuM4rFixgoGBAZLJJAcPHiQcDpOSksKcOXMI
+h8M0NjaSTCY5ffo0K1euxHEcysrKhhxruHOIiMjU8Y234YkTJ/D7/QD4/X5O
+njwJQCKRICMjw9svEAiQSCSs9UAgcEnddo7vi0QiRCIRAHp6esY7JBERGcak
+L2Z/u77wXY7jjLk+FpWVlcRiMWKxGPPmzRtTWxERsRt3UKSlpZFMJgFIJpOk
+pqYCF2cEXV1d3n7d3d2kp6db693d3ZfUbecQEZGpM+6gKC4u9j65FI1GKSkp
+8eq1tbUYY2hubmb27Nn4/X6Kiopoamqiv7+f/v5+mpqaKCoqwu/3M2vWLJqb
+mzHGUFtbO+RYw51DRESmkLkMpaWl5kc/+pHx+Xxm/vz55v/+7//MqVOnzJo1
+a4zrumbNmjWmt7fXGGPMhQsXzCOPPGKysrJMbm6uOXLkiHecPXv2mOzsbJOd
+nW3eeOMNr37kyBGTk5NjsrKyzKOPPmouXLhgjDEjnsNmyZIllzMkkSl3mb9u
+ItPCdu10jBlmkeAqFgqFiMVi090NkUuMtCYn8kNgu3bqyWwREbFSUIiIiJWC
+QkRErBQUIiJipaAQERErBYWIiFgpKERExEpBISIiVgoKERGxUlCIiIiVgkJE
+RKzG/eIikWtJSkrKlLyTfazvWhmPOXPm0NfXd8XPI/87FBQiQH9//zXzhX1T
+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
+TkSuQmCC
+" /></p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">18</span><span style=" color:#00ff00;">]:</span> box_plot=dataset1.YearsAtCompany </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">    ...:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">    ...:</span> plt.boxplot(box_plot)</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#ff0000;">Out[</span><span style=" font-weight:600; color:#ff0000;">18</span><span style=" color:#ff0000;">]:</span> </p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">{'whiskers': [&lt;matplotlib.lines.Line2D at 0x247720a1488&gt;,</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;matplotlib.lines.Line2D at 0x247720a1348&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'caps': [&lt;matplotlib.lines.Line2D at 0x247720a12c8&gt;,</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">  &lt;matplotlib.lines.Line2D at 0x2477220fd48&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'boxes': [&lt;matplotlib.lines.Line2D at 0x247721ab4c8&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'medians': [&lt;matplotlib.lines.Line2D at 0x2477220f988&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'fliers': [&lt;matplotlib.lines.Line2D at 0x247721b8e88&gt;],</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"> 'means': []}</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><img src="data:image/png;base64,
+iVBORw0KGgoAAAANSUhEUgAAAXAAAAD4CAYAAAD1jb0+AAAACXBIWXMAAAsS
+AAALEgHS3X78AAAAOnpUWHRTb2Z0d2FyZQAACJnLTSwpyMkvyclMUihLLSrO
+zM8z1jPUM9ZRyCgpKbDS18+Fy+vlF6XrAwCcGhDTEKHevwAAEy9JREFUeJzt
+3X9sVfX9x/HXKUX+AekPellrJ53QbM294p0cbUwIWsmFrSMQoNEx/ii2s0r2
+j3VLhJEN9g/ULZoRUeZNuqUxS5fMxLJsWKmC+4OENCexJhZjGgNCuxu49Mem
+i6yXcr5/8KWhtr2/en99OM9H0tjPyT09b5Pm1Q+fz/l8Ppbruq4AAMYpyncB
+AID0EOAAYCgCHAAMRYADgKEIcAAwVHEuH7ZixQrV1NTk8pEAYLyLFy/q2rVr
+s67nNMBramrkOE4uHwkAxrNte87rDKEAgKEIcAAwFAEOAIYiwAHAUAQ4ABgq
+6QCfmprS97//fW3ZskWSdOHCBdXX16u2tlZPP/20Jicns1YkkC2bN29WUVGR
+LMtSUVGRNm/enO+SgKQlHeBHjx5VXV3ddPull15Se3u7hoaGVFpaqs7OzqwU
+CGTL5s2bderUKT3//POamJjQ888/r1OnThHiMEZSAT48PKx//OMf+ulPfypJ
+cl1Xp0+fVlNTkySpublZPT092asSyIK+vj7t3btXb7zxhpYvX6433nhDe/fu
+VV9fX75LA5KSVIC/8MIL+u1vf6uiolsfHx0dVUlJiYqLb60Dqq6u1sjIyJz3
+hsNh2bYt27YVjUYzVDawcK7r6siRIzOuHTlyRGyRD1MkDPC///3v8vl8Wrdu
+3fS1uX7BLcua8/62tjY5jiPHcVRRUbGAUoHMsixL+/fvn3Ft//798/4uA4Um
+4VL6s2fP6m9/+5tOnjyp69ev6z//+Y9eeOEFTUxM6MaNGyouLtbw8LCqqqpy
+US+QMaFQSMePH5d0q+e9f/9+HT9+XJs2bcpzZUCS3BScOXPG/dGPfuS6rus2
+NTW53d3druu67nPPPee+/vrrCe9ft25dKo8Dsm7Tpk2uZVmuJNeyLHfTpk35
+LgmYZb7sTPs98Jdfflmvvvqq1qxZo9HRUbW2tmbwzwqQG++9955u3rwp13V1
+8+ZNvffee/kuCUia5bq5m7GxbZvdCAEgRfNlJysxAcBQBDgAGIoABwBDEeAA
+YCgCHAAMRYADgKEIcHga28nCZAQ4PIvtZGG6hHuhAHerO7eTlTT93z/84Q/5
+LAtIGj1weJbLdrIwHAEOz2I7WZiOIRR41u3tZG9vKXsb28nCFPTA4VnzbazG
+hmswBQEOzxobG5Pf75frutNffr9fY2Nj+S4NSAoBDk87efJk3DZQyAhweFpj
+Y2PcNlDIEgb49evX9eijj+qhhx6S3+/XwYMHJUl79uzRd77zHQWDQQWDQQ0M
+DGS9WCCTysrKNDg4qEAgoEuXLikQCGhwcFBlZWX5Lg1ISsK3UJYsWaLTp09r
+6dKlisViWr9+vX74wx9Kkn73u9+pqakp60UC2TA6Oqry8nINDg5q1apVkm6F
++ujoaJ4rA5KTMMAty9LSpUslSbFYTLFYjPdkcdcgrGGypMbAp6amFAwG5fP5
+FAqFVF9fL0k6cOCA1q5dq/b2dv3vf/+b895wOCzbtmXbtqLRaOYqBwCPS+lQ
+44mJCW3fvl2vvfaaysvL9a1vfUuTk5Nqa2vT6tWr9etf/zru/RxqDACpy8ih
+xiUlJXriiSfU29uryspKWZalJUuW6JlnnlF/f3/GigVyhe1kYbKEAR6NRjUx
+MSFJ+vrrr/X+++/re9/7niKRiKRbGwL19PQoEAhkt1Igw9hOFqZLOIkZiUTU
+3Nysqakp3bx5U0899ZS2bNmiJ598UtFoVK7rKhgMsgUnjMN2sjBdSmPgC8UY
+OAqJZVmamJjQ8uXLp6/9+9//VklJCVvKoqBkZAwcuJuwnSxMx3ay8Cy2k4Xp
+6IHDs06dOpXSdaDQEODwNMuyZmwny/AJTEKAw9PefffduG2gkBHg8LTbG7PN
+1wYKGZOY8DSGTWAyeuDwrOLiufsv810HCg0BDs+6ceOGSktLZ0xilpaW6saN
+G/kuDUgKAQ5P++c//xm3DRQyAhye9vjjj8dtA4WMwT54VnFxscbHx2dNYjIG
+DlPQAwcAQxHg8CwmMWE6AhyexiQmTEaAw9OYxITJEgb49evX9eijj+qhhx6S
+3+/XwYMHJUkXLlxQfX29amtr9fTTT2tycjLrxQKZdOck5u2v8fFxJjFhjIQB
+vmTJEp0+fVoff/yxBgYG1Nvbq3Pnzumll15Se3u7hoaGVFpaqs7OzlzUC2TM
+k08+mdJ1oNAkDHDLsrR06VJJUiwWUywWk2VZOn36tJqamiRJzc3N6unpyW6l
+QIbdPhPzzknMvXv3qq+vL9+lAUlJagx8ampKwWBQPp9PoVBIq1evVklJyfQ/
+NaurqzUyMjLnveFwWLZty7ZtRaPRzFUOLJDrujpy5MiMa0eOHOE8TBgjqQBf
+tGiRBgYGNDw8rP7+fn366aezPjPfjm5tbW1yHEeO46iiomJh1QIZxJmYMF1K
+b6GUlJToiSee0Llz5zQxMTH9vuzw8LCqqqqyUiCQLbfPxLxzEvP48eMKhUL5
+Lg1ISsIAj0ajmpiYkCR9/fXXev/991VXV6eGhga9/fbbkqSuri5t27Ytu5UC
+GeY4TkrXgUKTMMAjkYgaGhq0du1aPfLIIwqFQtqyZYtefvllvfrqq1qzZo1G
+R0fV2tqai3qBjBkbG5Pf758xien3+zU2Npbv0oCkWG4OZ2xs26Z3g4JhWZa+
++OIL3X///dPXLl26pFWrVjGRiYIyX3ayEhOe1tjYGLcNFDICHJ5VVlamwcFB
+BQIBXbp0SYFAQIODgyorK8t3aUBSWDMMzxodHVV5ebkGBwe1atUqSbdCfXR0
+NM+VAckhwOFphDVMxhAKABiKAIenlZeXz1jIU15enu+SgKQR4PCs8vLy6XfB
+v/jii+l3wAlxmIIxcHjW7fD+5JNPJEmffPLJ9JsogAnogcPTTp48GbcNFDIC
+HJ7GQh6YjCEUeNbthTzf3D6WhTwwBT1weNZ8m1axmRVMQYDD0xYvXjxjN8LF
+ixfnuyQgaQQ4PO3MmTNx20AhI8DhaQ0NDXHbQCFLGOCXL19WQ0OD6urq5Pf7
+dfToUUnSoUOHdN999ykYDCoYDPL6FYwUi8VmrMSMxWL5LglIWsK3UIqLi/XK
+K6/o4Ycf1pdffql169ZNnxnY3t6uX/ziF1kvEgAwW8IAr6ysVGVlpSRp2bJl
+qqur08jISNYLA3Jh8eLFmpycnG7fc8899MJhjJTGwC9evKiPPvpI9fX1kqRj
+x45p7dq1amlp0fj4+Jz3hMNh2bYt27YVjUYXXjGQQUxiwmRJn4n51Vdf6fHH
+H9eBAwe0Y8cOXblyRStWrJBlWfrVr36lSCSiP/7xj3F/BmdiopBYljVvD5wz
+MVFIFnQmZiwW086dO7V7927t2LFDkrRy5UotWrRIRUVFevbZZ9Xf35/ZioEc
+YBITJksY4K7rqrW1VXV1dXrxxRenr0cikenv33nnHQUCgexUCACYU8JJzLNn
+z+qtt97Sgw8+qGAwKEk6fPiwuru7NTAwIMuyVFNTozfffDPrxQLZcOdwyTf3
+RQEKWcIAX79+/ZzjgezahrvB22+/Pavd1NSUp2qA1LASE572zbAmvGEStpOF
+5zFsAlPRA4dnzbfvN/uBwxQEODzr9pmYd24ne/tgY8AEBDg8jTMxYTICHJ7G
+mZgwGZOY8CzOxITp6IHDszgTE6ajBw7PYyUmTEUPHJ62e/fuuG2gkBHg8LQ/
+//nPcdtAIWMIBZ7HsAlMRQ8cAAxFDxyexyQmTEUPHJ72zDPPxG0DhYwAh6f9
+6U9/itsGClnCAL98+bIaGhpUV1cnv9+vo0ePSrq12CEUCqm2tlahUGjeU+mB
+QnfnmZiASRIGeHFxsV555RV9+umnOnfunF5//XWdP39eHR0d2rhxo4aGhrRx
+40Z1dHTkol4AwP9LGOCVlZV6+OGHJUnLli1TXV2dRkZGdOLECTU3N0uSmpub
+1dPTk91KgSy5cztZwCQpjYFfvHhRH330kerr63XlyhVVVlZKuhXyV69enfOe
+cDgs27Zl27ai0ejCKwYyaPXq1XHbQCFLOsC/+uor7dy5U7///e917733Jv2A
+trY2OY4jx3FUUVGRVpFAtnz++edx20AhSyrAY7GYdu7cqd27d2vHjh2SpJUr
+VyoSiUiSIpGIfD5f9qoEsohJTJgqYYC7rqvW1lbV1dXpxRdfnL6+detWdXV1
+SZK6urq0bdu27FUJAJgl4UrMs2fP6q233tKDDz6oYDAoSTp8+LD27dunp556
+Sp2dnbr//vv117/+NevFAtnASkyYKmGAr1+/ft7Z+Q8++CDjBQG59Mtf/nJW
++/Dhw3mqBkiN5ebw3SnbtuU4Tq4eB8R1u7c9Vw+cVwpRSObLTpbSw/Msy9KB
+AwcYPoFxCHB41p297DuHTeh9wxRsJwtPI6xhMgIcd6VcDYfwBwD5RIDjrpRq
+sFqWRRjDOIyBA4ChCHAAMBQBDgCGIsABwFAEOAAYigAHAEMR4ABgKAIcAAxF
+gAOAoQhwADBUwgBvaWmRz+dTIBCYvnbo0CHdd999CgaDCgaDOnnyZFaLBADM
+ljDA9+zZo97e3lnX29vbNTAwoIGBATU2NmalOADA/BIG+IYNG1RWVpaLWgAA
+KUh7DPzYsWNau3atWlpaND4+Pu/nwuGwbNuWbduKRqPpPg4A8A1pBfjevXv1
++eefa2BgQJWVlfr5z38+72fb2trkOI4cx1FFRUXahQIAZkorwFeuXKlFixap
+qKhIzz77rPr7+zNdFwAggbQCPBKJTH//zjvvzHhDBQCQGwlP5Nm1a5c+/PBD
+Xbt2TdXV1frNb36jDz/8UAMDA7IsSzU1NXrzzTdzUSsA4A4JA7y7u3vWtdbW
+1qwUAwBIHisxAcBQBDgAGIoABwBDEeAAYCgCHAAMRYADgKEIcAAwFAEOAIYi
+wAHAUAQ4ABiKAAcAQxHgAGAoAhwADEWAA4ChCHAAMFTCAG9paZHP55tx6s7Y
+2JhCoZBqa2sVCoXiHmoMAMiOhAG+Z88e9fb2zrjW0dGhjRs3amhoSBs3blRH
+R0fWCgQAzC1hgG/YsEFlZWUzrp04cULNzc2SpObmZvX09GSnOgDAvBIeqTaX
+K1euqLKyUpJUWVmpq1evzvvZcDiscDgsSYpGo+k8DgAwh6xPYra1tclxHDmO
+o4qKimw/DgA8I60AX7lypSKRiCQpEonI5/NltCgAQGJpBfjWrVvV1dUlSerq
+6tK2bdsyWhQAILGEAb5r1y499thj+uyzz1RdXa3Ozk7t27dPfX19qq2tVV9f
+n/bt25eLWgEAd0g4idnd3T3n9Q8++CDjxQBzKSsry8laA8uysvrzS0tLNTY2
+ltVnwFvSegsFyKXx8XG5rpvvMhYs238g4D0spQcAQxHgAGAoAhwADEWAA4Ch
+CHAAMBQBDgCGIsABwFAEOAAYigAHAEMR4ABgKAIcAAxFgAOAoQhwADAUAQ4A
+hiLAAcBQC9oPvKamRsuWLdOiRYtUXFwsx3EyVRcAIIEFH+hw5swZrVixIhO1
+AABSwBAKABhqQT1wy7K0adMmWZal5557Tm1tbbM+Ew6HFQ6HJUnRaHQhj4NH
+uQfvlQ4tz3cZC+YevDffJeAuY7kLOGzwX//6l6qqqnT16lWFQiG99tpr2rBh
+w7yft22bcXKkzLKsu+ZMzLvh/wO5N192LmgIpaqqSpLk8/m0fft29ff3L+TH
+AQBSkHaA//e//9WXX345/f2pU6cUCAQyVhgAIL60x8CvXLmi7du3S5Ju3Lih
+n/zkJ/rBD36QscIAAPGlHeAPPPCAPv7440zWAgBIAa8RAoChCHAAMBQBDgCG
+IsABwFAL3gsFyAXLsvJdwoKVlpbmuwTcZQhwFLxcrF5klSRMxBAKABiKAAcA
+QxHgAGAoAhwADEWAA4ChCHAAMBQBDgCGIsABwFAEOAAYigAHAEMtKMB7e3v1
+3e9+V2vWrFFHR0emagIAJCHtAJ+amtLPfvYzvfvuuzp//ry6u7t1/vz5TNYG
+AIgj7QDv7+/XmjVr9MADD+iee+7Rj3/8Y504cSKTtQEA4kg7wEdGRvTtb397
+ul1dXa2RkZFZnwuHw7JtW7ZtKxqNpvs4ICWWZaX0lc49d8MWtzBb2gE+19ab
+c/1Ct7W1yXEcOY6jioqKdB8HpMR13Zx8AfmUdoBXV1fr8uXL0+3h4WFVVVVl
+pCgAQGJpB/gjjzyioaEhXbhwQZOTk/rLX/6irVu3ZrI2AEAcaZ/IU1xcrGPH
+jmnz5s2amppSS0uL/H5/JmsDAMSxoCPVGhsb1djYmKlaAAApYCUmABiKAAcA
+QxHgAGAoAhwADGW5OVyNsGLFCtXU1OTqcUDSotEoC81QsC5evKhr167Nup7T
+AAcKlW3bchwn32UAKWEIBQAMRYADgKEIcEC3Nl0DTMMYOAAYih44ABiKAAcA
+QxHg8LSWlhb5fD4FAoF8lwKkjACHp+3Zs0e9vb35LgNICwEOT9uwYYPKysry
+XQaQFgIcAAxFgAOAoQhwADAUAQ4AhiLA4Wm7du3SY489ps8++0zV1dXq7OzM
+d0lA0lhKDwCGogcOAIYiwAHAUAQ4ABiKAAcAQxHgAGAoAhwADEWAA4Ch/g82
+E7g6mt5k9QAAAABJRU5ErkJggg==
+" /></p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" color:#00ff00;">In [</span><span style=" font-weight:600; color:#00ff00;">19</span><span style=" color:#00ff00;">]:</span> </p></body></html>
